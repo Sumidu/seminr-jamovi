@@ -1,6 +1,7 @@
 ---
 name: SeminrPLS
 title: PLS-SEM
+jrs: '1.1'
 refs: seminr
 items:
   - name: modelSpec
