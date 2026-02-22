@@ -29,7 +29,6 @@ options:
   - name: constructs
     title: Constructs
     type: Array
-    items: 1
     description:
       R: >
         a list of construct definitions, each with a name, measurement type,
@@ -75,7 +74,6 @@ options:
   - name: paths
     title: Structural Paths
     type: Array
-    items: 1
     description:
       R: a list of structural paths between constructs
     template:
