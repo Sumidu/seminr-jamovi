@@ -4,5 +4,9 @@ name: SeminrPLS
 jus: '3.0'
 stage: 0
 compilerMode: aggressive
-children: []
+children:
+  - type: LayoutBox
+    margin: large
+    stretchFactor: 1
+    children: []
 ...
