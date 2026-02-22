@@ -1,0 +1,126 @@
+---
+name: SeminrPLS
+title: PLS-SEM
+refs: seminr
+items:
+  - name: modelSpec
+    title: Model Specification
+    type: Html
+    visible: true
+
+  - name: measurement
+    title: Measurement Model
+    type: Table
+    description: >
+      Loadings (reflective constructs) or weights (composite constructs)
+      for each indicator variable.
+    rows: 0
+    columns:
+      - name: construct
+        title: Construct
+        type: text
+      - name: indicator
+        title: Indicator
+        type: text
+      - name: type
+        title: Type
+        type: text
+      - name: loading
+        title: Loading/Weight
+        type: number
+        format: zto
+      - name: se
+        title: SE
+        type: number
+        format: zto
+        visible: (bootstrap)
+      - name: tstat
+        title: t-stat
+        type: number
+        format: zto
+        visible: (bootstrap)
+      - name: pvalue
+        title: p
+        type: number
+        format: zto,pvalue
+        visible: (bootstrap)
+
+  - name: structural
+    title: Structural Model
+    type: Table
+    description: >
+      Path coefficients between constructs in the structural model.
+    rows: 0
+    columns:
+      - name: from
+        title: From
+        type: text
+      - name: to
+        title: To
+        type: text
+      - name: estimate
+        title: Estimate
+        type: number
+        format: zto
+      - name: se
+        title: SE
+        type: number
+        format: zto
+        visible: (bootstrap)
+      - name: tstat
+        title: t-stat
+        type: number
+        format: zto
+        visible: (bootstrap)
+      - name: pvalue
+        title: p
+        type: number
+        format: zto,pvalue
+        visible: (bootstrap)
+      - name: ci_lower
+        title: 2.5%
+        type: number
+        format: zto
+        visible: (bootstrap)
+      - name: ci_upper
+        title: 97.5%
+        type: number
+        format: zto
+        visible: (bootstrap)
+
+  - name: rSquared
+    title: R-Squared
+    type: Table
+    description: >
+      R-squared (coefficient of determination) for each endogenous construct.
+    rows: 0
+    columns:
+      - name: construct
+        title: Construct
+        type: text
+      - name: rsq
+        title: R²
+        type: number
+        format: zto
+      - name: rsq_adj
+        title: Adjusted R²
+        type: number
+        format: zto
+
+  - name: modelFit
+    title: Model Fit
+    type: Table
+    description: >
+      Global model fit indices for the PLS-SEM model.
+    rows: 1
+    columns:
+      - name: srmr
+        title: SRMR
+        type: number
+      - name: rms_theta
+        title: RMS Theta
+        type: number
+      - name: nfl
+        title: NFI
+        type: number
+...

@@ -1,0 +1,21 @@
+# R package build artifacts
+*.Rcheck/
+*.tar.gz
+*.zip
+.Rd2pdf*
+
+# Compiled jamovi module
+*.jmo
+
+# Roxygen generated files (uncomment if using roxygen2)
+# NAMESPACE
+man/
+
+# Environment
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+# jmvtools cache
+.jmvtools/

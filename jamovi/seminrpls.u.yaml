@@ -1,0 +1,84 @@
+---
+title: PLS-SEM
+name: SeminrPLS
+jus: '2.0'
+stage: 0
+compilerMode: tame
+children:
+  - type: CollapseBox
+    label: Constructs (Measurement Model)
+    collapsed: false
+    children:
+      - type: Label
+        label: >
+          Define each construct by specifying its name, measurement type
+          (reflective or composite), and the indicator variables that measure it.
+        children: []
+      - type: Array
+        name: constructs
+        showToolbar: true
+        children:
+          - type: LayoutBox
+            margin: large
+            children:
+              - type: TextBox
+                name: name
+                format: string
+                label: Name
+              - type: ComboBox
+                name: type
+                label: Type
+              - type: VariablesListBox
+                name: indicators
+                label: Indicators
+                isTarget: true
+                height: normal
+  - type: CollapseBox
+    label: Structural Paths
+    collapsed: false
+    children:
+      - type: Label
+        label: >
+          Define paths between constructs using the exact construct names
+          specified above.
+        children: []
+      - type: Array
+        name: paths
+        showToolbar: true
+        children:
+          - type: LayoutBox
+            margin: large
+            children:
+              - type: TextBox
+                name: from
+                format: string
+                label: From
+              - type: TextBox
+                name: to
+                format: string
+                label: To
+  - type: CollapseBox
+    label: Options
+    collapsed: false
+    children:
+      - type: ComboBox
+        name: innerWeights
+        label: Inner Weighting Scheme
+      - type: ComboBox
+        name: missing
+        label: Missing Values
+      - type: CheckBox
+        name: bootstrap
+        label: Bootstrap Model
+        children:
+          - type: TextBox
+            name: nboot
+            format: integer
+            label: Bootstrap Samples
+            enable: (bootstrap)
+          - type: TextBox
+            name: seed
+            format: integer
+            label: Random Seed
+            enable: (bootstrap)
+...

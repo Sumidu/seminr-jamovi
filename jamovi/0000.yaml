@@ -1,0 +1,25 @@
+---
+name: seminrjamovi
+version: 0.1.0
+jms: '1.0'
+authors:
+  - André Calero Valdez
+maintainer: André Calero Valdez <andrecalerovaldez@gmail.com>
+date: '2026-02-22'
+type: R
+description: >
+  PLS Structural Equation Modeling using the seminr package.
+  Provides a jamovi interface for specifying and estimating PLS-SEM models,
+  including measurement model specification, structural model paths, and
+  optional bootstrapping for inference.
+analyses:
+  - title: PLS-SEM
+    name: SeminrPLS
+    ns: seminrjamovi
+    menuGroup: seminr
+    menuSubgroup: ''
+    menuTitle: PLS-SEM
+    menuSubtitle: Partial Least Squares SEM
+usesNative: true
+minApp: 1.0.8
+...

@@ -1,0 +1,148 @@
+---
+name: SeminrPLS
+title: PLS-SEM
+menuGroup: seminr
+version: '1.0.0'
+jas: '1.2'
+description:
+  main: >
+    Partial Least Squares Structural Equation Modeling (PLS-SEM) using the
+    seminr package. Specify your measurement model (constructs and their
+    indicator variables) and structural model (paths between constructs),
+    then estimate the PLS-SEM model.
+  references:
+    - >
+      Hair, J. F., Risher, J. J., Sarstedt, M., & Ringle, C. M. (2019).
+      When to use and how to report results of PLS-SEM. European Business
+      Review, 31(1), 2-24.
+    - >
+      Ray, S., Singh, P. K., & Brown, L. (2021). SEMinR: A Domain-Specific
+      Language for Building Structural Equation Models in R. Journal of
+      Statistical Software, 99(1), 1-39.
+
+options:
+  - name: data
+    type: Data
+    description:
+      R: the data as a data frame
+
+  - name: constructs
+    title: Constructs
+    type: Array
+    items: 1
+    description:
+      R: >
+        a list of construct definitions, each with a name, measurement type,
+        and indicator variables
+    template:
+      type: Group
+      elements:
+        - name: name
+          title: Construct Name
+          type: String
+          default: ''
+          description:
+            R: the name of the construct (e.g., "Image", "Loyalty")
+
+        - name: type
+          title: Measurement Type
+          type: List
+          options:
+            - title: Reflective
+              name: reflective
+            - title: Composite (Mode A)
+              name: composite_a
+            - title: Composite (Mode B)
+              name: composite_b
+          default: reflective
+          description:
+            R: >
+              the measurement type: reflective, composite_a (Mode A weights),
+              or composite_b (Mode B weights)
+
+        - name: indicators
+          title: Indicators
+          type: Variables
+          suggested:
+            - continuous
+            - ordinal
+          permitted:
+            - numeric
+            - factor
+          description:
+            R: the indicator/manifest variables for this construct
+
+  - name: paths
+    title: Structural Paths
+    type: Array
+    items: 1
+    description:
+      R: a list of structural paths between constructs
+    template:
+      type: Group
+      elements:
+        - name: from
+          title: From Construct
+          type: String
+          default: ''
+          description:
+            R: the name of the predictor construct
+
+        - name: to
+          title: To Construct
+          type: String
+          default: ''
+          description:
+            R: the name of the outcome construct
+
+  - name: innerWeights
+    title: Inner Weighting Scheme
+    type: List
+    options:
+      - title: Path Weighting (Recommended)
+        name: path_weighting
+      - title: Factor Weighting
+        name: factor_weighting
+    default: path_weighting
+    description:
+      R: the inner weighting scheme for PLS estimation
+
+  - name: missing
+    title: Missing Value Handling
+    type: List
+    options:
+      - title: Mean Replacement
+        name: mean_replacement
+      - title: Listwise Deletion
+        name: listwise_deletion
+    default: mean_replacement
+    description:
+      R: method for handling missing values
+
+  - name: bootstrap
+    title: Bootstrap Model
+    type: Bool
+    default: false
+    description:
+      R: >
+        if TRUE, bootstrap the model to obtain standard errors, t-statistics,
+        and p-values for path coefficients
+
+  - name: nboot
+    title: Bootstrap Samples
+    type: Integer
+    default: 1000
+    min: 100
+    max: 10000
+    description:
+      R: number of bootstrap samples (only used if bootstrap is TRUE)
+
+  - name: seed
+    title: Random Seed
+    type: Integer
+    default: 123
+    min: 1
+    max: 2147483647
+    description:
+      R: random seed for reproducibility of bootstrap results
+...

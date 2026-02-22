@@ -1,0 +1,21 @@
+Package: seminrjamovi
+Type: Package
+Title: seminr for jamovi
+Version: 0.1.0
+Author: André Calero Valdez <andrecalerovaldez@gmail.com>
+Maintainer: André Calero Valdez <andrecalerovaldez@gmail.com>
+Description: A wrapper around the seminr package to provide Partial Least
+    Squares Structural Equation Modeling (PLS-SEM) features in jamovi.
+    Allows users to specify measurement models, structural models, and
+    run PLS-SEM analyses with optional bootstrapping for inference.
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
+Imports:
+    jmvcore (>= 0.8.5),
+    R6
+Suggests:
+    seminr (>= 2.3.0)
+Remotes:
+    sem-in-r/seminr
+RoxygenNote: 7.0.0
